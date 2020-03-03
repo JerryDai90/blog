@@ -46,7 +46,7 @@ find / -name mysql
 rm -rf folderORFileNamw
 ```
 
-## 3 安装
+## 3. 安装
 ### 3.1 安装软件
 依次执行
 
@@ -89,7 +89,7 @@ mariadb-libs-1:5.5.52-1.el7.x86_64
 yum install -y perl net-tools
 ```
 
-## 4 初始化
+## 4. 初始化
 ### 4.1 初始化data目录文件
 
 ```
@@ -143,7 +143,7 @@ mysql> select host, user from user;
 
 到此为止就安装完成了 `Mysql`，一下是调优配置
 
-## 5 其他配置
+## 5. 其他配置
 
 ### 5.1 配置忽略大小写
 
@@ -247,8 +247,25 @@ mysqld install MYSQL_Sername_name --defaults-file="D:\mysql-5.7.26-winx64\mysql-
 mysqld.exe --initialize --user=root --console
 ```
  
-## 6 参考文章
+## 6. 参考文章
 https://blog.csdn.net/wudinaniya/article/details/82979645?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task
 
 https://blog.csdn.net/hao134838/article/details/80163181
+
+## 7. 附录
+
+```shell
+#查看mysql是否启动
+service mysqld status
+    
+# 启动mysql
+service mysqld start
+    
+# 停止mysql
+service mysqld stop
+    
+# 重启mysql
+service mysqld restart
+```
+
 

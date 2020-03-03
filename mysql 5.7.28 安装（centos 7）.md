@@ -232,6 +232,20 @@ Permissive
 ```
 
 重启即可生效。
+
+### 5.3 window 版
+#### 5.3.1 注册服务
+进入到 `mysql` 目录，修改下面命令中的 `MYSQL_Sername_name` 为注册服务的名称，后面是具体 `my.ini` 路径
+
+```sheel
+mysqld install MYSQL_Sername_name --defaults-file="D:\mysql-5.7.26-winx64\mysql-5.7.26-winx64\my.ini"
+```
+
+#### 5.3.2 初始化服务
+
+```sheel
+mysqld.exe --initialize --user=root --console
+```
  
 ## 6 参考文章
 https://blog.csdn.net/wudinaniya/article/details/82979645?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task

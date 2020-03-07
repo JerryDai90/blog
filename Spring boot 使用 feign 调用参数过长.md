@@ -23,11 +23,15 @@ server.jetty.max-http-form-post-size
 ```
 还是解决不了。突然看到了帖子，说配置头部即可解决问题。果然。
 
-> 为什么是是配置 max-http-header-size 就可以了。难道是 `fegin` 是把请求放到头部？需要需要重新分析请求的数据，
+> 为什么是是配置 max-http-header-size 就可以了。难道是 `fegin` 是把请求放到头部？需要需要重新分析请求的数据？
 
 <font color="red">待续。。。</font>
 
 ## 思考
 **问：同样的数据，如果直接在使用前端的 Ajax 请求的话，会缺失数据吗？**
 待验证。。。。
+
+
+## 参考文献
+https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html#server-properties
 

@@ -76,17 +76,57 @@ SynchronousMethodHandler#targetRequest(RequestTemplate template)
 ```
 也就是说，如果要彻底解决问题，需要更换底层相关实现。另外如果可以修改源代码，解决也很简单，只需要依据请求的方法来构建是否把数据放到 body 还是 url 上面即可。
 
+### 2.3 使用 httpClient 代替默认实现
+
+增加 `maven` 依赖:
+
+```xml
+<dependency>
+    <groupId>org.apache.httpcomponents</groupId>
+    <artifactId>httpclient</artifactId>
+    <version>4.5.11</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/io.github.openfeign/feign-httpclient -->
+<dependency>
+    <groupId>io.github.openfeign</groupId>
+    <artifactId>feign-httpclient</artifactId>
+    <version>10.8</version>
+</dependency>
+```
+
+在yml文件中增加配置:
+
+```yml
+feign:
+  httpclient:
+    enabled: true
+```
+
+增加后启动依旧POST 变GET 请求。
+
+**以下是原因分析：**
+
+先回经过 `ApacheHttpClient#toHttpUriRequest(Request request, Request.Options options);` 方法，由于前面构建的 `Request` 对象就没有 `body` 信息。所以默认赋予一个空的Entity。如下图：
+
+![w500](http://img.lsof.fun/2020-03-08-15836757341084.jpg)
+
+其次调用了 `RequestBuilder#build();` 构建的时候，下图②处又将重新参数赋予到url上了，又重复出现一样的问题。如下图：
+![w500](http://img.lsof.fun/2020-03-08-15836755685690.jpg)
+
+再寻解决方案。。。。
+
 ## 思考
 **问：同样的数据，如果直接在使用前端的 Ajax 请求的话，会缺失数据吗？**
 如果正常使用POST请求，不会那么快就受到限制，目前看到的是 spring 的fegin用了get请求，把参数写到url上，导致长度受限 8K
 
 
-
 ## 参考文献
 https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html#server-properties
+
+https://www.jianshu.com/p/11710629c226
 
 **HTTP Body 相关规范**
 https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Messages
 https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/POST
-
 

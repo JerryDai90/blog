@@ -103,7 +103,7 @@ feign:
     enabled: true
 ```
 
-增加后启动依旧POST 变GET 请求。
+增加后启动依旧 `POST` 变 `GET` 请求。
 
 **以下是原因分析：**
 
@@ -117,17 +117,19 @@ feign:
 再寻解决方案。。。
 
 
-## 思考
+## 3. 思考
 **问：同样的数据，如果直接在使用前端的 Ajax 请求的话，会缺失数据吗？**
-如果正常使用POST请求，不会那么快就受到限制，目前看到的是 spring 的fegin用了get请求，把参数写到url上，导致长度受限 8K
+
+如果正常使用 `POST` 请求，不会那么快就受到限制（默认2M限制），目前看到的是 `Spring` 的 `fegin` 用了 `Get` 请求，把参数写到url上，导致长度受限 8K
 
 
-## 参考文献
+## 4. 参考文献
 https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html#server-properties
 
 https://www.jianshu.com/p/11710629c226
 
 **HTTP Body 相关规范**
+
 https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Messages
 https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/POST
 

@@ -114,16 +114,24 @@ feign:
 其次调用了 `RequestBuilder#build();` 构建的时候，下图②处又将重新参数赋予到url上了，又重复出现一样的问题。如下图：
 ![w500](http://img.lsof.fun/2020-03-08-15836755685690.jpg)
 
-再寻解决方案。。。
+#### 2.3.1 修改 feign 源码
 
+上面我们已经确认了问题所在，这个时候只需要修改部分源码即可解决这个问题。复制feign.httpclient.ApacheHttpClient 到你工程路径下（注意包名也要一致），然后注释掉下面这句。
 
-## 3. 思考
-**问：同样的数据，如果直接在使用前端的 Ajax 请求的话，会缺失数据吗？**
+![w600](http://img.lsof.fun/2020-03-09-15837611769939.jpg)
 
-如果正常使用 `POST` 请求，不会那么快就受到限制（默认2M限制），目前看到的是 `Spring` 的 `fegin` 用了 `Get` 请求，把参数写到url上，导致长度受限 8K
+去掉以下依赖
 
+```xml
+<dependency>
+    <groupId>io.github.openfeign</groupId>
+    <artifactId>feign-httpclient</artifactId>
+    <version>10.8</version>
+</dependency>
+```
+重新导入刷新工程即可。这个时候就是正确的 `GET` 和 `POST`
 
-## 4. 参考文献
+## 3. 参考文献
 https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html#server-properties
 
 https://www.jianshu.com/p/11710629c226
@@ -132,4 +140,5 @@ https://www.jianshu.com/p/11710629c226
 
 https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Messages
 https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/POST
+
 

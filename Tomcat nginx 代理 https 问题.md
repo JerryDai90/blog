@@ -2,12 +2,7 @@
 
 整体的请求过程
 
-```sequence
-Internet->Nginx on SSL: visit
-Nginx on SSL->Tomcat non SSL: request
-Tomcat non SSL-->Nginx on SSL: response
-
-```
+![w400](http://img.lsof.fun/2020-03-10-15838506471882.jpg)
 
 调试的时候，发现拿到的 `Scheme` 总是不对
 

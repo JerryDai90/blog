@@ -51,11 +51,12 @@ public void apply(RequestTemplate template) {
 
 上面是代码片段，详细请查看 [FeignRequestInterceptor.java](https://github.com/JerryDai90/sping-boot-experiment/blob/master/feign/src/main/java/fun/lsof/feign/fix/urlencode/FeignRequestInterceptor.java)
 
-## 2. 疑问
-### 2.1 是否可以使用 HTTPClient 的实现就可以解决问题？
+## 3. 疑问
+### 3.1 是否可以使用 HTTPClient 的实现就可以解决问题？
 也不行，如果不做上面的实现，直接改用HTTPClient实现的话，也只是在发送的过程中起到作用，还是需要在前进行处理。
 
-## 3. 参考文献
+## 4. 参考文献
 https://spring.hhui.top/spring-blog/2019/03/27/190327-Spring-RestTemplate之urlencode参数解析异常全程分析/
 
+https://www.w3school.com.cn/tags/html_ref_urlencode.html
 

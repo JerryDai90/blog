@@ -2,7 +2,7 @@
 
 使用 ProxyFactory 可以实现一个完整 AOP 逻辑。类图：
 
-![w400](media/15853886777207/15853888582147.jpg)
+![w400](http://img.lsof.fun/2020-03-29-15853888582147.jpg)
 
 核心在 ProxyCreatorSupport 类，其中 aopProxyFactory 在构造函数中就进行了初始化，通过 `DefaultAopProxyFactory#createAopProxy(AdvisedSupport config)` 返回具体的 `AopProxy` 对象，主要有2个实现类：
 
@@ -17,7 +17,7 @@
 
 具体时序图
 
-![](media/15853886777207/15854941135146.jpg)
+![](http://img.lsof.fun/2020-03-29-15854941135146.jpg)
 
 时序图说明：
 1. 构造函数初始化的时候构件好了工厂类 `AopProxyFactory` （实现类 `DefaultAopProxyFactory`）。
@@ -26,5 +26,4 @@
 
 
 基础的使用可以看Github：https://github.com/JerryDai90/java-case/blob/master/spring/aop/src/main/java/fun/lsof/spring/aop/hardcode/SpringAopHardCodedByProxyFactoryTest.java
-
 

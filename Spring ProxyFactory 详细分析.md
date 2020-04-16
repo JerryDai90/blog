@@ -18,6 +18,7 @@ public class ProxyCreatorSupport extends AdvisedSupport {
 		this.aopProxyFactory = new DefaultAopProxyFactory();
 	}
 ...
+}
 ```
 
 ## 2. 设置代理相关配置

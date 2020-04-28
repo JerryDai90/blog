@@ -232,6 +232,8 @@ Permissive
 ```
 
 重启即可生效。
+> 注意：重启后也要查看是否禁用了 （getenforce -->Permissive），如果无法禁用，直接编辑 /etc/selinux/config file 设置 SELINUX to disabled or Permissive 
+> see [https://www.cyberciti.biz/faq/disable-selinux-on-centos-7-rhel-7-fedora-linux/]()
 
 ### 5.3 window 版
 #### 5.3.1 注册服务

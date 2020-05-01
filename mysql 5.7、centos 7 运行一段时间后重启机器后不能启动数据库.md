@@ -43,7 +43,7 @@
 ```
 setenforce 0 
 ```
-> 设置完成后需要重启，如果重启后 setenforce 重启后依旧是 Enforcing，需要 Edit the /etc/selinux/config file and set the SELINUX to disabled
+> 设置完成后需要重启，如果重启后 setenforce 重启后依旧是 Enforcing，需要 Edit the /etc/selinux/config file and set the SELINUX to permissive
 > ![/etc/selinux/config-w500](http://img.lsof.fun/2020-04-28-WeChatWorkScreenshot_f9478372-7a51-4d5f-9c07-b7932fa7d8e0.png) 
 
 也有可能会出现一下异常

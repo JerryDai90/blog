@@ -1,6 +1,6 @@
 # Spring xml 解析扩展
 
-Spring 配置文件xml 是可以通过注册命名空间来达到解析扩展的。也就是说 AOP、TX、等都是通过扩展命名空间来解析数据的。定义自己的命名解析需要有几个步骤，Github实例代码：[https://github.com/JerryDai90/java-case/tree/master/spring/xml](https://github.com/JerryDai90/java-case/tree/master/spring/xml)
+Spring 配置文件xml 是可以通过注册命名空间来达到解析扩展的。也就是说 AOP、TX、等都是通过扩展命名空间来解析数据的。定义自己的命名解析需要有几个步骤，主要采用[策略模式](https://www.runoob.com/design-pattern/strategy-pattern.html)进行开发，Github实例代码：[https://github.com/JerryDai90/java-case/tree/master/spring/xml](https://github.com/JerryDai90/java-case/tree/master/spring/xml)
 
 #### 1. 自定义 DefinitionParser
 需要定义解析 xml `DefinitionParser`，如 `ConfigBeanDefinitionParser.java`

@@ -53,6 +53,10 @@ NamespaceHandlerSupport：注册标签对应的解析类
 这样就可完成扩展Spring xml 的解析并且实现相应的业务。大概划的处理图。标准的配置流程可以参考 spring-aop-5.2.3.RELEASE.jar 配置。
 ![w400](http://img.lsof.fun/2020-05-04-15885707470215.jpg)
 
+* spring 初始化的时候就会去ClassLoader找到所有的 META-INF/spring.handlers 文件。
+* 加载文件中的 Handler，调用 init 进行初始化（这里初始化就直接映射了命名空间与 element 之间的关系）。
+* 真正解析的的时候拿到当前的 element 后，即可后去其命名空间，通过命名空间找到相应的 parser 对象进行解析。
+
 #### 7. 其他
 debug 看代码的时候，断点DefaultNamespaceHandlerResolver#getHandlerMappings() 方法里面的时候，handlerMappings 成员变量都是有值的。以为有什么黑魔法，百思不得解。最后发现另外以为大神也遇到，附上链接：https://www.cnblogs.com/developer_chan/p/10002492.html
 

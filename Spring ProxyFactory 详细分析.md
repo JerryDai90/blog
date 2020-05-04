@@ -100,7 +100,7 @@ List<Object> chain = this.advised.getInterceptorsAndDynamicInterceptionAdvice(me
 * ThrowsAdvice：出现异常后调用。
 
 ### 5.2 Pointcut 
-定义什么样的东西需要被拦截。比如说以 get 开通我就拦截。常用有：
+定义什么样的东西需要被拦截。比如说以 get 开头我就拦截。常用有：
 
 * NameMatchMethodPointcut：通过名称
 * AspectJExpressionPointcut：通过使用一套表达式
@@ -117,6 +117,21 @@ Advisor = Advice + Pointcut。常用有：
 * AopProxyFactory：如果不满足现在有的 JDK和CGLib 的动态代理实现，可以自定义实现。
 * AdvisedSupportListener：可以注册监听动作
 * AdvisorChainFactory：在具体实现调用增强的时候可以进行优化
+
+使用的注解有：
+
+```java
+//标记为切面类
+@Aspect
+//拦截点
+@Pointcut
+//前置
+@Before
+//后置
+@After
+//环绕
+@Around
+```
 
 ## 7. 注释
 

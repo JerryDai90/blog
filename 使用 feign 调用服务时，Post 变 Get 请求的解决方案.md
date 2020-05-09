@@ -14,7 +14,6 @@
 **1、增加feign的拦截器 FeignRequestInterceptor**
 
 ```java
-import com.xuanyuan.common.utils.StringUtils;
 import feign.*;
 import feign.template.QueryTemplate;
 import lombok.extern.slf4j.Slf4j;

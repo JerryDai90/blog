@@ -21,7 +21,7 @@ feign 解析参数的时候，使用的标准是 [`RFC 3986`](https://www.ietf.o
 
 依据上面的过程，我们可以实现一个 RequestInterceptor 拦截器，在这里对参数再次进行转义即可。
 
-```
+```java
 public void apply(RequestTemplate template) {
 
     Map<String, Collection<String>> _queries = template.queries();

@@ -46,6 +46,13 @@ find / -name mysql
 rm -rf folderORFileNamw
 ```
 
+### 2.3 卸载 mariadb
+
+```
+yum -y remove mari*
+```
+
+
 ## 3. 安装
 ### 3.1 安装软件
 依次执行

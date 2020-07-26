@@ -278,7 +278,7 @@ invoke(Object proxy, Method method, Object[] args)
 > 不依靠Proxy来实现动态代理实现方法：[https://github.com/JerryDai90/java-case/tree/master/java-core/proxy/src/main/java/fun/lsof/javacore/proxy/dynamic](https://github.com/JerryDai90/java-case/tree/master/java-core/proxy/src/main/java/fun/lsof/javacore/proxy/dynamic)
 
 ## 3. 总结
-其实 JDK 的动态代理就是动态生成字节码而已，然后再使用反射技术对接口中的方法进行引用。通过反射即可调用被代理对象的方法。从而达到代理的目的。
+其实 JDK 的动态代理就是动态生成字节码而已，然后再使用反射技术对接口（只能代理接口）中的方法进行引用。通过反射即可调用被代理对象的方法。从而达到代理的目的。
 
 ## 4. 扩展
 

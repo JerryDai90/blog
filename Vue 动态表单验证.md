@@ -32,7 +32,7 @@ formItem : {
 ### 源码分析
 为什么 rules 中的 `"path1.path2.path3"` 可以映射到 formItem中的对象。可以打开 form-item.vue 文件
 
-![](media/15962044862982/15962120140226.jpg)
+![](http://img.lsof.fun/2020-08-01-15962120140226.jpg)
 
 也就是如果你是动态生产的表单，只需要按照这种规范生产`rules`以及在`formItem`里面存在相同路径的都是可以调用验证
 

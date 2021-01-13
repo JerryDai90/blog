@@ -31,6 +31,9 @@ Security 认证都是基于围绕 Filter来展开，比如默认的 `/login` 接
 
 ### 3.1 认证登陆逻辑分析
 
+![](http://img.lsof.fun/2021-01-13-16080946360655.jpg)
+上图为用户名密码认证图
+
 WebSecurityConfigurerAdapter 自动装配了路径为 `/login` 这个路径为登陆认证请求路径。如下：
 
 ```java
@@ -70,6 +73,10 @@ AbstractAuthenticationProcessingFilter.doFilter(HttpServletRequest request, Http
 3、如果是类型是 DaoAuthenticationProvider 的话，会使用 PasswordEncoder、UserDetailsService 来辅助认证。
 
 > 思考：为什么要设计的那么复杂？
+
+附上官方文档执行流程图
+![](http://img.lsof.fun/2021-01-13-16080974265436.jpg)
+
 
 ## 4. 实战
 ### 4.1 自定义一个认证

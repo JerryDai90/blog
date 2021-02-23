@@ -21,4 +21,7 @@ mybatis-plus:
 @MapperScan(basePackages = "lsof.fun", markerInterface = BaseMapper.class)
 ```
 
+### 参考
+https://www.javatt.com/p/80860
+https://segmentfault.com/a/1190000012470056
 

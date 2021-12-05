@@ -1,6 +1,6 @@
 　　在 `macOS` 下，使用 brew 安装了 `rabbitMQ`，发现外部是访问不了 `5672` 端口的。使用命令查看后改端口只监听了`localhost`，那就可以解释为什么不能访问了。如下图：
 
-　　![w500](http://img.lsof.fun/2020-03-09-15836496895109.jpg)
+　　![w500](http://img.lsof.fun/2020-03-09-15836496895109.jpg)  
 ①处只监听了localhost，②处是不限制。所以需要把 `amqp` 监听修改为指定IP等。
 
 　　修改此文件 `/usr/local/Cellar/rabbitmq/3.7.16/sbin/rabbitmq-env`，（文件路径按实际目录来，这个是我本机地址）增加如下代码：

@@ -28,5 +28,10 @@
 
 　　在这个目录下运行命令:
 
-　　mvn -f download-dep-pom.xml dependency:copy-dependencies
-所有跟这个类库相关的直接和间接依赖的jar包都会下载到 ./target/dependency/下
+```shell
+mvn -f download-dep-pom.xml dependency:copy-dependencies
+```
+
+　　所有跟这个类库相关的直接和间接依赖的jar包都会下载到 ./target/dependency/下
+
+　　

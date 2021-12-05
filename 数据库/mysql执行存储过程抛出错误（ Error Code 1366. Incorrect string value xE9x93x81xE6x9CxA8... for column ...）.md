@@ -27,7 +27,9 @@ show create procedure procedureName;
 show full columns from tableName;  
 ```
 
-　　这个编码也是要和数据库的编码要一致。结构如下，需要看 Collation 的字符集（主要在字符类型的字段）
+　　这个编码也是要和数据库的编码要一致。结构如下，需要看 Collation 的字符集（主要在字符类型的字段）  
 ![](http://img.lsof.fun/2018-08-08-15337089427558.jpg)
 
 　　如果上面三点的字符集一致的情况下存储过程是可以执行的。
+
+　　

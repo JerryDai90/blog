@@ -25,7 +25,9 @@
 
 ## 备注
 
-　　参数说明
+　　参数说明  
 ![](http://img.lsof.fun/2018-05-25-15248197821035.jpg)
 
 　　附上地址 [https://tomcat.apache.org/tomcat-8.0-doc/config/resources.html](https://tomcat.apache.org/tomcat-8.0-doc/config/resources.html)
+
+　　

@@ -36,7 +36,7 @@
 
 ### 3.1 认证登陆逻辑分析
 
-　　![](http://img.lsof.fun/2021-01-13-16080946360655.jpg)
+　　![](http://img.lsof.fun/2021-01-13-16080946360655.jpg)  
 上图为用户名密码认证图
 
 　　WebSecurityConfigurerAdapter 自动装配了路径为 `/login` 这个路径为登陆认证请求路径。如下：
@@ -66,13 +66,13 @@ public FormLoginConfigurer<HttpSecurity> formLogin() throws Exception {
 AbstractAuthenticationProcessingFilter.doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
 ```
 
-　　回调方法 `attemptAuthentication()` 逻辑方法运行的类逻辑图。
+　　回调方法 `attemptAuthentication()` 逻辑方法运行的类逻辑图。  
  ![w500](http://img.lsof.fun/2020-12-13-16078545172829.jpg)
 
 　　接口类逻辑图说明：
 1、 ProviderManager（AuthenticationManager） 持有所有的 AuthenticationProvider 对象（注入此对象请查看 `AuthenticationProvider 使用说明`）。
 
-> UsernamePasswordAuthenticationFilter 构建用户输入的对象时已经决定用户可以使用的 AuthenticationProvider。
+> UsernamePasswordAuthenticationFilter 构建用户输入的对象时已经决定用户可以使用的 AuthenticationProvider。  
 > ![](http://img.lsof.fun/2020-12-13-16078635109165.jpg)
 >
 
@@ -82,7 +82,7 @@ AbstractAuthenticationProcessingFilter.doFilter(HttpServletRequest request, Http
 > 思考：为什么要设计的那么复杂？
 >
 
-　　附上官方文档执行流程图
+　　附上官方文档执行流程图  
 ![](http://img.lsof.fun/2021-01-13-16080974265436.jpg)
 
 ## 4. 实战

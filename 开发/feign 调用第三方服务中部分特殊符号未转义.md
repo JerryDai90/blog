@@ -57,6 +57,8 @@ public void apply(RequestTemplate template) {
 
 ## 4. 参考文献
 
-　　https://spring.hhui.top/spring-blog/2019/03/27/190327-Spring-RestTemplate之urlencode参数解析异常全程分析/
+　　[https://spring.hhui.top/spring-blog/2019/03/27/190327-Spring-RestTemplate之urlencode参数解析异常全程分析/](https://spring.hhui.top/spring-blog/2019/03/27/190327-Spring-RestTemplate之urlencode参数解析异常全程分析/)
 
-　　https://www.w3school.com.cn/tags/html_ref_urlencode.html
+　　[https://www.w3school.com.cn/tags/html_ref_urlencode.html](https://www.w3school.com.cn/tags/html_ref_urlencode.html)
+
+　　

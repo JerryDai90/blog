@@ -39,7 +39,7 @@ brew install inetutils
 
 ### 2.2 貌似电池续航短了
 
-　　休眠一个晚上掉电 10% 左右。进过搜寻资料，有一个帖子值得参考 https://www.jianshu.com/p/7b55f2bb3cbd
+　　休眠一个晚上掉电 10% 左右。进过搜寻资料，有一个帖子值得参考 [https://www.jianshu.com/p/7b55f2bb3cbd](https://www.jianshu.com/p/7b55f2bb3cbd)
 
 ### 2.3 开机慢
 
@@ -91,4 +91,6 @@ brew install inetutils
 
 ## 5. 再次升级到 10.14.5 (20190715)
 
-　　好多软件都开始需要 10.12 以上的版本，秉承着相同 12、13、14 都是一个系列的，就还是升级到 14。升级完成后还是出现了无法在辅助功能中添加。但是看到了其他机友是找到的问题（膜拜大牛）。https://www.jianshu.com/p/fbf95b4d65de。还有其他有意思的 quicklook （https://www.jianshu.com/p/af97b3850982）
+　　好多软件都开始需要 10.12 以上的版本，秉承着相同 12、13、14 都是一个系列的，就还是升级到 14。升级完成后还是出现了无法在辅助功能中添加。但是看到了其他机友是找到的问题（膜拜大牛）。[https://www.jianshu.com/p/fbf95b4d65de](https://www.jianshu.com/p/fbf95b4d65de)。还有其他有意思的 quicklook （[https://www.jianshu.com/p/af97b3850982](https://www.jianshu.com/p/af97b3850982)）
+
+　　

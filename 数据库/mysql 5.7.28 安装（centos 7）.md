@@ -6,7 +6,7 @@
 
 ## 1. 准备文件
 
-　　下载地址：[https://dev.mysql.com/downloads/mysql/5.7.html](https://dev.mysql.com/downloads/mysql/5.7.html)。我下载的是一整个 tar 包，如下图
+　　下载地址：[https://dev.mysql.com/downloads/mysql/5.7.html](https://dev.mysql.com/downloads/mysql/5.7.html)。我下载的是一整个 tar 包，如下图  
 ![w400](http://img.lsof.fun/2020-03-02-15831588856536.jpg)
 
 　　解压后只需要安装以下包
@@ -74,8 +74,8 @@ rpm -ivh mysql-community-server-5.7.28-1.el7.x86_64.rpm
 
 　　**安装过程中可能会遇到的问题**
 
-　　①包冲突，异常如下图：
-![](http://img.lsof.fun/2020-03-02-15831593202506.jpg)
+　　①包冲突，异常如下图：  
+![](http://img.lsof.fun/2020-03-02-15831593202506.jpg)  
 *此图引用于（https://blog.csdn.net/hao134838/article/details/80163181）*
 
 　　请卸载：

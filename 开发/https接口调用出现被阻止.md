@@ -3,7 +3,6 @@
 > 信任是指通过浏览器访问后，点击继续浏览才是信任。  
 > ![w200](http://img.lsof.fun//uPic/Maf4b6.jpg)
 >
->
 
 　　在浏览器启动的时候，增加上参数 `--ignore-certificate-errors` 即可忽略所有证书的警告信息。
 
@@ -13,6 +12,6 @@
 　　设置区分各个操作系统
 
 * windows
+  待编写
 * macos
-
-　　
+  待编写

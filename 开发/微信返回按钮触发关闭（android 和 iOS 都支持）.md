@@ -79,4 +79,4 @@ common.goBackCloseWechatWindow : function (key, fnOnSetFlagCallback, fnCloseCall
 
 ## 参考资料
 
-　　https://github.com/Tencent/weui/wiki/微信 JSAPI
+　　[https://github.com/Tencent/weui/wiki/微信 JSAPI](https://github.com/Tencent/weui/wiki/微信 JSAPI)

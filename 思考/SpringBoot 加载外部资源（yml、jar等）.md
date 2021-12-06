@@ -54,4 +54,6 @@ java -Dloader.path=$PATH -jar auth-test.jar
 
 ## 3. 相关资料
 
-　　https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-executable-jar-format.html#executable-jar-property-launcher-features
+　　[https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-executable-jar-format.html#executable-jar-property-launcher-features](https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-executable-jar-format.html#executable-jar-property-launcher-features)
+
+　　

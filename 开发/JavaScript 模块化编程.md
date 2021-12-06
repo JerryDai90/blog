@@ -189,4 +189,6 @@ var obj = function () {  // open IIFE
 
 ## 参考资料
 
-　　http://jerryzou.com/posts/jsmodular/
+　　[http://jerryzou.com/posts/jsmodular/](http://jerryzou.com/posts/jsmodular/)
+
+　　

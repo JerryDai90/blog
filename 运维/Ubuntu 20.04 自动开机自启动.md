@@ -6,7 +6,7 @@
 sudo gedit /home/tom/test/my.sh
 ```
 
-```
+```bash
 #! /bin/bash
 echo "success..."
 ```
@@ -19,19 +19,19 @@ chmod +x /home/tom/test/my.sh
 
 　　进入/etc/systemd/system/，创建一个 my.service 文件，
 
-```
+```shell
 sudo gedit  /etc/systemd/system/my.service
 ```
 
 　　内容如下：
 
-```
+```properties
 [Unit]
 Description=just for test                     #这里填简介
 After=BBB.service　XXX.service  AAA.service   #这里填上你这个脚本所需要的前置service，都在/etc/systemd/system/下
  
 [Service]
-ExecStart=/home/tom/test/my.sh                 #这里填sh文件路径，比如这里运行了这个my.sh，后面也可以跟参数，比如 -D -I                                                                                                                                  
+ExecStart=/home/tom/test/my.sh                 #这里填sh文件路径，比如这里运行了这个my.sh，后面也可以跟参数，比如 -D -I                                                                                                                                
  
 [Install]
 WantedBy=multi-user.target

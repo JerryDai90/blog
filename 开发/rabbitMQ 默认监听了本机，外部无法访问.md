@@ -19,4 +19,4 @@ DEFAULT_NODE_PORT=5672
 
 ## 参考文献
 
-　　http://liubin.nanshapo.com/2013/09/04/rabbitmq-on-os-x/
+　　[http://liubin.nanshapo.com/2013/09/04/rabbitmq-on-os-x/](http://liubin.nanshapo.com/2013/09/04/rabbitmq-on-os-x/)

@@ -22,5 +22,5 @@ ExecWait 'cmd /c mklink /D "D:\test02" "D:\test01"'
 
 ## 参考资料
 
-　　https://nsis-dev.github.io/NSIS-Forums/html/t-314525.html
-http://www.it610.com/article/1835566.htm
+　　[https://nsis-dev.github.io/NSIS-Forums/html/t-314525.html
+](https://nsis-dev.github.io/NSIS-Forums/html/t-314525.html)[http://www.it610.com/article/1835566.htm](http://www.it610.com/article/1835566.htm)

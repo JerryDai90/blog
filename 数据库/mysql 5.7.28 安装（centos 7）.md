@@ -140,7 +140,7 @@ mysql> flush privileges;
 
 　　设置 `root` 可以在外面任何机器可以访问。
 
-```
+```js
 mysql> use mysql;
 mysql> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '新密码' WITH GRANT OPTION;
 mysql> select host, user from user;
@@ -166,13 +166,13 @@ mysql> select host, user from user;
 
 　　修改文件 `/etc/my.cnf` 增加一行
 
-```
-    lower_case_table_names = 1
+```bash
+lower_case_table_names = 1
 ```
 
 　　附上我的 `my.cnf` 文件
 
-```shell
+```properties
 # For advice on how to change settings please see
 # http://dev.mysql.com/doc/refman/5.7/en/server-configuration-defaults.html
 
@@ -252,8 +252,8 @@ Permissive
 
 　　重启即可生效。
 
-> 注意：重启后也要查看是否禁用了 （getenforce -->Permissive），如果无法禁用，直接编辑 /etc/selinux/config file 设置 SELINUX to disabled or Permissive
-> see [https://www.cyberciti.biz/faq/disable-selinux-on-centos-7-rhel-7-fedora-linux/]()
+> 注意：重启后也要查看是否禁用了 （getenforce -->Permissive），如果无法禁用，直接编辑 /etc/selinux/config file 设置 SELINUX to disabled or Permissive  
+> see [https://www.cyberciti.biz/faq/disable-selinux-on-centos-7-rhel-7-fedora-linux/](https://www.cyberciti.biz/faq/disable-selinux-on-centos-7-rhel-7-fedora-linux/)
 >
 
 ### 5.3 window 版
@@ -274,22 +274,22 @@ mysqld.exe --initialize --user=root --console
 
 ## 6. 参考文章
 
-　　https://blog.csdn.net/wudinaniya/article/details/82979645?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task
+　　[https://blog.csdn.net/wudinaniya/article/details/82979645?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task](https://blog.csdn.net/wudinaniya/article/details/82979645?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task)
 
-　　https://blog.csdn.net/hao134838/article/details/80163181
+　　[https://blog.csdn.net/hao134838/article/details/80163181](https://blog.csdn.net/hao134838/article/details/80163181)
 
 ## 7. 附录
 
-```shell
+```bash
 #查看mysql是否启动
 service mysqld status
-    
+  
 # 启动mysql
 service mysqld start
-    
+  
 # 停止mysql
 service mysqld stop
-    
+  
 # 重启mysql
 service mysqld restart
 ```

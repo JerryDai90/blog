@@ -9,7 +9,7 @@
 
 ## 1. 下载 mariadb 版本
 
-　　下载地址：[https://archive.mariadb.org]()，针对对应的部署平台下载相应的版本。由于找不到 mysql 与 mariadb 对应的版本。可以先拿到最新的 mariadb-5.5.68 进行尝试。
+　　下载地址：[https://archive.mariadb.org](https://archive.mariadb.org)，针对对应的部署平台下载相应的版本。由于找不到 mysql 与 mariadb 对应的版本。可以先拿到最新的 mariadb-5.5.68 进行尝试。
 
 ### 1.1.1 获取 dll or so
 
@@ -29,7 +29,7 @@ INSTALL PLUGIN server_audit SONAME 'server_audit.dll';
 
 ## 2. 配置 my.ini or my.cnf
 
-```
+```properties
 server_audit=FORCE_PLUS_PERMANENT
 server_audit_events=CONNECT,QUERY,TABLE,QUERY_DDL
 server_audit_logging=on

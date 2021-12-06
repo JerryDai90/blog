@@ -38,11 +38,8 @@ server.jetty.max-http-form-post-size
 
 　　官方对此参数的说明
 
->
->
-
 | Key	Value                   | Default | Description                              |
-| --------------------------- | ------- | ---------------------------------------- |
+| ----------------------------- | --------- | ------------------------------------------ |
 | server.max-http-header-size | 8KB     | Maximum size of the HTTP message header. |
 
 > 摘抄于 https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html#server-properties
@@ -57,7 +54,7 @@ server.jetty.max-http-form-post-size
 > * Response headers: 包含有关响应的补充信息，如其位置或服务器本身（名称和版本等）的消息头。
 > * Entity headers: 包含有关实体主体的更多信息，比如主体长(Content-Length)度或其 MIME 类型。
 >
-> 摘抄于 https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers
+> 摘抄于 [https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers)
 >
 
 　　并未找到相关头部具体的定义消息，但经过实际的代码试验，`URL` 就是头部的一部分，默认是 `8KB`。超过后就会拒绝。（在头部设置超过 `8KB` 的数据也是同样的异常）。
@@ -116,7 +113,7 @@ feign:
 
 　　![w500](http://img.lsof.fun/2020-03-08-15836757341084.jpg)
 
-　　其次调用了 `RequestBuilder#build();` 构建的时候，下图 ② 处又将重新参数赋予到 url 上了，又重复出现一样的问题。如下图：
+　　其次调用了 `RequestBuilder#build();` 构建的时候，下图 ② 处又将重新参数赋予到 url 上了，又重复出现一样的问题。如下图：  
 ![w500](http://img.lsof.fun/2020-03-08-15836755685690.jpg)
 
 #### 2.3.1 修改 feign 源码
@@ -139,13 +136,13 @@ feign:
 
 ## 3. 参考文献
 
-　　https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html#server-properties
+　　[https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html#server-properties](https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html#server-properties)
 
-　　https://www.jianshu.com/p/11710629c226
+　　[https://www.jianshu.com/p/11710629c226](https://www.jianshu.com/p/11710629c226)
 
 　　**HTTP Body 相关规范**
 
-　　https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Messages
-https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/POST
+　　[https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Messages
+](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Messages)[https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/POST](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/POST)
 
 　　

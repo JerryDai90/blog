@@ -71,10 +71,10 @@ rpm -ivh mysql-community-server-8.0.25-1.el7.x86_64.rpm
 mysqld --defaults-file=/etc/my.cnf --initialize --user=mysql --console
 ```
 
-> 如果需要设置忽略大小写，先修改配置文件/etc/my.cnf再进行初始化。如果已经初始化了可以删除掉 /var/lib/mysql 下的所有文件，再次初始化
+> 如果需要设置忽略大小写，先修改配置文件/etc/my.cnf 再进行初始化。如果已经初始化了可以删除掉 /var/lib/mysql 下的所有文件，再次初始化
 >
 
-　　初始化后会生产随机root 密码 /var/log/mysqld.log
+　　初始化后会生产随机 root 密码 /var/log/mysqld.log
 
 ```
 2021-07-08T08:42:38.153215Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
@@ -103,14 +103,14 @@ alter user 'root'@'localhost' identified by '123456';
 ERROR 1820 (HY000): You must reset your password using ALTER USER statement before executing this statement.
 ```
 
-　　进入 mysql 库，执行下面命令，让外部可以使用root 登陆。
+　　进入 mysql 库，执行下面命令，让外部可以使用 root 登陆。
 
 ```
 use mysql
 update user set host='%' where user ='root';
 ```
 
-　　如果使用Navicat登陆的需要重新设置一下密码
+　　如果使用 Navicat 登陆的需要重新设置一下密码
 
 ```
 ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123456';

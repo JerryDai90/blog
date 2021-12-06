@@ -1,4 +1,4 @@
-　　开发过程中，发现+（加号）这个符号没有转义，导致再调用服务的时候把加号转义成空格了。导致后台获取到的数据会不正确。
+　　开发过程中，发现 +（加号）这个符号没有转义，导致再调用服务的时候把加号转义成空格了。导致后台获取到的数据会不正确。
 
 ## 1. 问题发现过程
 
@@ -53,11 +53,11 @@ public void apply(RequestTemplate template) {
 
 ### 3.1 是否可以使用 HTTPClient 的实现就可以解决问题？
 
-　　也不行，如果不做上面的实现，直接改用HTTPClient实现的话，也只是在发送的过程中起到作用，还是需要在前进行处理。
+　　也不行，如果不做上面的实现，直接改用 HTTPClient 实现的话，也只是在发送的过程中起到作用，还是需要在前进行处理。
 
 ## 4. 参考文献
 
-　　[https://spring.hhui.top/spring-blog/2019/03/27/190327-Spring-RestTemplate之urlencode参数解析异常全程分析/](https://spring.hhui.top/spring-blog/2019/03/27/190327-Spring-RestTemplate之urlencode参数解析异常全程分析/)
+　　[https://spring.hhui.top/spring-blog/2019/03/27/190327-Spring-RestTemplate 之 urlencode 参数解析异常全程分析/](https://spring.hhui.top/spring-blog/2019/03/27/190327-Spring-RestTemplate之urlencode参数解析异常全程分析/)
 
 　　[https://www.w3school.com.cn/tags/html_ref_urlencode.html](https://www.w3school.com.cn/tags/html_ref_urlencode.html)
 

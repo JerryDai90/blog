@@ -35,7 +35,7 @@ ProxyFactory.addAdvice(Advice advice);
 
 ## 3. 获取代理对象 ProxyFactory#getProxy()
 
-　　ProxyFactory#getProxy() 其实就是调用了 ProxyFactory#createAopProxy()，这里就是调用DefaultAopProxyFactory#createAopProxy(AdvisedSupport config) ，设置代理相关参数和返回AopProxy。
+　　ProxyFactory#getProxy() 其实就是调用了 ProxyFactory#createAopProxy()，这里就是调用 DefaultAopProxyFactory#createAopProxy(AdvisedSupport config) ，设置代理相关参数和返回 AopProxy。
 
 ```java
 public class DefaultAopProxyFactory implements AopProxyFactory, Serializable {
@@ -66,7 +66,7 @@ public class DefaultAopProxyFactory implements AopProxyFactory, Serializable {
 
 ### 4.1 JdkDynamicAopProxy
 
-　　使用 JdkDynamicAopProxy 动态代理的话，只能代理接口类。JDK的动态代理主要是实现 InvocationHandler 接口。
+　　使用 JdkDynamicAopProxy 动态代理的话，只能代理接口类。JDK 的动态代理主要是实现 InvocationHandler 接口。
 
 ```
 public interface InvocationHandler {
@@ -82,12 +82,12 @@ public interface InvocationHandler {
 List<Object> chain = this.advised.getInterceptorsAndDynamicInterceptionAdvice(method, targetClass);
 ```
 
-　　这里巧妙利用拦截器的个数来控制是否需要调用 Advice。这也就是为什么JDK的动态代理运行比较慢，是需要在 invoke 里面进行过滤执行。
+　　这里巧妙利用拦截器的个数来控制是否需要调用 Advice。这也就是为什么 JDK 的动态代理运行比较慢，是需要在 invoke 里面进行过滤执行。
 
 > 假如需要自定义判断处理逻辑自己实现 AdvisorChainFactory 后，调用 `AdvisedSupport#setAdvisorChainFactory(AdvisorChainFactory advisorChainFactory)` 设置。
 >
 
-　　<!--具体的接口方法是一定会调用的，只是前面需要不需要有拦截器，很巧妙的运用的方法拦截器 （MethodInterceptors），如果PointCut 通过的话，就调用 MethodInterceptors 的链，否则就直接调用。
+　　<!--具体的接口方法是一定会调用的，只是前面需要不需要有拦截器，很巧妙的运用的方法拦截器 （MethodInterceptors），如果 PointCut 通过的话，就调用 MethodInterceptors 的链，否则就直接调用。
 
 　　需要具体研究出如何实现的，实现的设计模式是怎么样的-->
 
@@ -117,9 +117,9 @@ List<Object> chain = this.advised.getInterceptorsAndDynamicInterceptionAdvice(me
 
 ## 6. 总结
 
-　　在AOP构建主线的过程中，提供了很多扩展的空间。比如：
+　　在 AOP 构建主线的过程中，提供了很多扩展的空间。比如：
 
-* AopProxyFactory：如果不满足现在有的 JDK和CGLib 的动态代理实现，可以自定义实现。
+* AopProxyFactory：如果不满足现在有的 JDK 和 CGLib 的动态代理实现，可以自定义实现。
 * AdvisedSupportListener：可以注册监听动作
 * AdvisorChainFactory：在具体实现调用增强的时候可以进行优化
 
@@ -140,6 +140,6 @@ List<Object> chain = this.advised.getInterceptorsAndDynamicInterceptionAdvice(me
 
 ## 7. 注释
 
-　　[1]：支持使用已经注册到IoC容器的相关类，包括配置，切面等。
+　　[1]：支持使用已经注册到 IoC 容器的相关类，包括配置，切面等。
 
 　　[2]：默认实现 DefaultAopProxyFactory，如果有其他的动态代理实现方式，可以去实现 接口 `AopProxyFactory`，然后使用 `ProxyCreatorSupport#setAopProxyFactory(AopProxyFactory aopProxyFactory)`。

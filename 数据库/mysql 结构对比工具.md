@@ -1,6 +1,6 @@
 # mysql 结构对比工具
 
-　　市面上有2中工具一个是 `MySQL Utilities` 和 `AmpNmp.DatabaseCompare`
+　　市面上有 2 中工具一个是 `MySQL Utilities` 和 `AmpNmp.DatabaseCompare`
 
 ### MySQL Utilities
 
@@ -44,7 +44,7 @@ python 2.7
 
 ### 工具
 
-　　我使用的是下面2个工具
+　　我使用的是下面 2 个工具
 mysql-utilities-1.6.5-macos10.12.dmg
 mysql-connector-python-2.0.5-osx10.9.dmg
 

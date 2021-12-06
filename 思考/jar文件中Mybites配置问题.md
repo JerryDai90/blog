@@ -1,4 +1,4 @@
-　　Mybites 配置在classpath中是可以加载的，本文Q&A主要解jar包中加载Mybites问题
+　　Mybites 配置在 classpath 中是可以加载的，本文 Q&A 主要解 jar 包中加载 Mybites 问题
 
 #### 1. *Mapper.xml 读取不到
 
@@ -9,12 +9,12 @@ mybatis-plus:
   mapper-locations: classpath*:mapper/*.xml
 ```
 
-#### 2. 接口与实现类重复注册到Bean容器中
+#### 2. 接口与实现类重复注册到 Bean 容器中
 
-　　主要是由于 `@MapperScan` 问题，将所有的接口都标记为Mapper 接口，所以导致有同一个代理类
+　　主要是由于 `@MapperScan` 问题，将所有的接口都标记为 Mapper 接口，所以导致有同一个代理类
 
 　　**解决办法**
-@MapperScan 增加 markerInterface接口，Mapper 的父类即可。
+@MapperScan 增加 markerInterface 接口，Mapper 的父类即可。
 
 ```
 @MapperScan(basePackages = "lsof.fun", markerInterface = BaseMapper.class)

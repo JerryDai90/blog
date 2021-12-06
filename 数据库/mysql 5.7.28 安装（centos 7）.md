@@ -74,7 +74,7 @@ rpm -ivh mysql-community-server-5.7.28-1.el7.x86_64.rpm
 
 　　**安装过程中可能会遇到的问题**
 
-　　①包冲突，异常如下图：  
+　　① 包冲突，异常如下图：  
 ![](http://img.lsof.fun/2020-03-02-15831593202506.jpg)  
 *此图引用于（https://blog.csdn.net/hao134838/article/details/80163181）*
 
@@ -94,7 +94,7 @@ Preparing packages...
 mariadb-libs-1:5.5.52-1.el7.x86_64
 ```
 
-　　②缺失依赖包，异常如下图：
+　　② 缺失依赖包，异常如下图：
 
 　　![67FA2904-492C-4599-AE7B-AD561634BE43](http://img.lsof.fun/2020-03-02-67FA2904-492C-4599-AE7B-AD561634BE43.png)
 
@@ -106,7 +106,7 @@ yum install -y perl net-tools
 
 ## 4. 初始化
 
-### 4.1 初始化data目录文件
+### 4.1 初始化 data 目录文件
 
 ```
 mysqld --initialize --user=mysql

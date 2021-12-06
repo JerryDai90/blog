@@ -3,7 +3,7 @@
 > 错误日志看 /etc/my.cnf 里面的 `log-error=/var/log/mysqld.log`
 >
 
-　　如题，由于运维原因，重启了机器后发现Mysql 启动不了，查看日志后提示如下，
+　　如题，由于运维原因，重启了机器后发现 Mysql 启动不了，查看日志后提示如下，
 
 ```
 2020-03-02T07:57:46.856711Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).

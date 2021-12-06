@@ -1,6 +1,6 @@
 # JDK Proxy 代理源码分析
 
-　　过程说明：动态生成目标接口的 Class 代理类，这个代理类是实现了接口中的所有方法。然后再把此class加载到内存中。调用代理类方法的时候代理类去调用实际对象方法。
+　　过程说明：动态生成目标接口的 Class 代理类，这个代理类是实现了接口中的所有方法。然后再把此 class 加载到内存中。调用代理类方法的时候代理类去调用实际对象方法。
 
 ## 1. 分析生产的过程
 
@@ -32,7 +32,7 @@ public static Object newProxyInstance(ClassLoader loader, Class<?>[] interfaces,
 
 ```
 
-　　其中核心的代码生成 `getProxyClass0(loader, intfs)`，此方法里面只需要关注 `proxyClassCache`（WeakCache类） 这个成员变量。此类是用于缓存代理对象的。
+　　其中核心的代码生成 `getProxyClass0(loader, intfs)`，此方法里面只需要关注 `proxyClassCache`（WeakCache 类） 这个成员变量。此类是用于缓存代理对象的。
 
 ```
 /**
@@ -42,7 +42,7 @@ private static final WeakCache<ClassLoader, Class<?>[], Class<?>>
     proxyClassCache = new WeakCache<>(new KeyFactory(), new ProxyClassFactory());
 ```
 
-> 构建 proxyClassCache 有2个参数，其中关键的是 ProxyClassFactory ①
+> 构建 proxyClassCache 有 2 个参数，其中关键的是 ProxyClassFactory ①
 >
 
 　　`WeakCache#get` 方法是核心方法，这里是构建并且缓存对象。
@@ -148,7 +148,7 @@ public Class<?> apply(ClassLoader loader, Class<?>[] interfaces) {
 
 ### 1.1 小结
 
-　　通过以上的分析，其实JDK动态代理核心就是 `ProxyGenerator#generateProxyClass`，更多的旁枝末节更多是辅助性的，比如缓存等。
+　　通过以上的分析，其实 JDK 动态代理核心就是 `ProxyGenerator#generateProxyClass`，更多的旁枝末节更多是辅助性的，比如缓存等。
 
 ## 2. 如何实现对目标方法的调用
 
@@ -272,14 +272,14 @@ public final class Proxy1 extends Proxy implements ICar {
 }
 ```
 
-　　看到以上自动生成的代码，`Proxy1` 初始化的时候，就会加载静态函数，其中静态代码块中是枚举了所有接口（ICar）中类的方法。拥有接口中的方法是为了反射可以调用。再看到 start、run、stop 方法，每个方法都回调了 InvocationHandler#invoke方法。从而达到对方法的前后增强
+　　看到以上自动生成的代码，`Proxy1` 初始化的时候，就会加载静态函数，其中静态代码块中是枚举了所有接口（ICar）中类的方法。拥有接口中的方法是为了反射可以调用。再看到 start、run、stop 方法，每个方法都回调了 InvocationHandler#invoke 方法。从而达到对方法的前后增强
 
 ```java
 // 提供具体代理的对象 proxy、代理方法的 method、代理方法的参数 args
 invoke(Object proxy, Method method, Object[] args) 
 ```
 
-> 不依靠Proxy来实现动态代理实现方法：[https://github.com/JerryDai90/java-case/tree/master/java-core/proxy/src/main/java/fun/lsof/javacore/proxy/dynamic](https://github.com/JerryDai90/java-case/tree/master/java-core/proxy/src/main/java/fun/lsof/javacore/proxy/dynamic)
+> 不依靠 Proxy 来实现动态代理实现方法：[https://github.com/JerryDai90/java-case/tree/master/java-core/proxy/src/main/java/fun/lsof/javacore/proxy/dynamic](https://github.com/JerryDai90/java-case/tree/master/java-core/proxy/src/main/java/fun/lsof/javacore/proxy/dynamic)
 >
 
 ## 3. 总结

@@ -2,8 +2,8 @@
 
 ## 1. centos7 rpm 离线安装 docker
 
-　　详情看以下教程，基本都囊括了所有的步骤以及突发情况
-https://www.jianshu.com/p/764ec08196e0?from=singlemessage
+　　详情看以下教程，基本都囊括了所有的步骤以及突发情况  
+[https://www.jianshu.com/p/764ec08196e0?from=singlemessage](https://www.jianshu.com/p/764ec08196e0?from=singlemessage)
 
 ## 2. docker 使用
 
@@ -25,7 +25,7 @@ docker save nginx:latest > nginx_1.10.tar
 docker load < nginx_1.10.tar
 ```
 
-* tag镜像
+* tag 镜像
 
 ```sh
 docker tag nginx-test:latest  68.208.6.61:5000/nginx:latest
@@ -34,7 +34,7 @@ docker tag nginx-test:latest  68.208.6.61:5000/nginx:latest
 # 68.208.6.61:5000/nginx:latest  修改后的名字
 ```
 
-* 查看当前机器image
+* 查看当前机器 image
 
 ```sh
 docker images
@@ -73,7 +73,7 @@ docker exec -it 116fecafd7c2 /bin/bash
 # 容器的id 116fecafd7c2
 ```
 
-* 查看docker正在运行的容器
+* 查看 docker 正在运行的容器
 
 ```sh
 # 查看正在运行的容器
@@ -108,7 +108,7 @@ docker rmi redis:latest
 }
 ```
 
-　　192.168.0.22  修改为具体的私服地址，修改完成后需要重启docker
+　　192.168.0.22  修改为具体的私服地址，修改完成后需要重启 docker
 
 ```
 systemctl restart docker
@@ -127,7 +127,7 @@ systemctl restart docker
 docker inspect 容器名称或者id
 ```
 
-　　查看具体容器imageid（使用什么镜像运行的容器）
+　　查看具体容器 imageid（使用什么镜像运行的容器）
 
 ```
 docker inspect -f {{".Image"}} 容器名称或者id 

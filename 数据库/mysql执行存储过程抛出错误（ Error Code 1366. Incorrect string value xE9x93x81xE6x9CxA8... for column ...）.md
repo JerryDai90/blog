@@ -1,4 +1,4 @@
-# mysql执行存储过程抛出错误（ Error Code: 1366. Incorrect string value: '\xE9\x93\x81\xE6\x9C\xA8...' for column ...）
+# mysql 执行存储过程抛出错误（ Error Code: 1366. Incorrect string value: '\xE9\x93\x81\xE6\x9C\xA8...' for column ...）
 
 　　经过搜索和排查，最终得知是字符集的问题，恰好在创建里面用到的表和存储过程的时候不知道哪位兄台修改了数据的字符集。排查步骤如下
 

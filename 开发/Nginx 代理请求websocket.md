@@ -1,11 +1,11 @@
-在 spring boot 中提供一个websocket，前端通过websocket连接，但是经过前端特定前缀代理后。发现并不能访问到后台websocket。
+在 spring boot 中提供一个 websocket，前端通过 websocket 连接，但是经过前端特定前缀代理后。发现并不能访问到后台 websocket。
 
 ### 假定
 
-* http://127.0.0.1:8301/websocket 是可以访问到websocket的。
+* http://127.0.0.1:8301/websocket 是可以访问到 websocket 的。
 * 前端配置固定代理转发后台地址，比如： http://127.0.0.1/api 转发到 --> http://127.0.0.1:8301
 
-　　如果这个时候前端需要连接到后台的websocket，需要使用
+　　如果这个时候前端需要连接到后台的 websocket，需要使用
 
 ```
 #常规地址转发到后台
@@ -25,5 +25,5 @@ location /api/websocket {
 }
 ```
 
-> rewrite指令说明：rewrite regex replacement [flag];
+> rewrite 指令说明：rewrite regex replacement [flag];
 >

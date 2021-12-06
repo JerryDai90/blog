@@ -1,4 +1,4 @@
-# window软连接方案
+# window 软连接方案
 
 　　如果你希望把一个目录在多个地方都可以访问。
 
@@ -24,7 +24,7 @@ src_dir 映射的目录
 
 ## 其他方案
 
-　　可以使用 `Junction`，不过这个工具需要下载一个 exe，mklink是 window 自带的命令。
+　　可以使用 `Junction`，不过这个工具需要下载一个 exe，mklink 是 window 自带的命令。
 
 ## 参考资料
 

@@ -5,9 +5,9 @@
 
 ## 1. 总结
 
-　　Security 认证都是基于围绕 Filter来展开，比如默认的 `/login` 接口采用的是 `UsernamePasswordAuthenticationFilter` 过滤器进行处理（访问路径进行匹配 RequestMatcher ）。而注入到过滤器链入口是 `HttpSecurity`。
+　　Security 认证都是基于围绕 Filter 来展开，比如默认的 `/login` 接口采用的是 `UsernamePasswordAuthenticationFilter` 过滤器进行处理（访问路径进行匹配 RequestMatcher ）。而注入到过滤器链入口是 `HttpSecurity`。
 
-> HttpSecurity 相当于我们的XML文件。只是这里采用的是编码的方式进行声明。
+> HttpSecurity 相当于我们的 XML 文件。只是这里采用的是编码的方式进行声明。
 >
 
 ## 2. 核心类说明
@@ -20,9 +20,9 @@
 * SecurityContext - 从 SecurityContextHolder 获得,并包含当前经过身份验证的用户的 Authentication .
 * Authentication - 可以是 AuthenticationManager 的输入,用户提供的用于身份验证的凭据或来自 SecurityContext 的当前用户.
 * GrantedAuthority - 在 Authentication 授予委托人的权限 (即角色,作用域等) .
-* AuthenticationManager - 定义 Spring Security 的过滤器如何执行身份验证的API.（其实就是认证，可以直接在这里写逻辑具体认证逻辑）
+* AuthenticationManager - 定义 Spring Security 的过滤器如何执行身份验证的 API.（其实就是认证，可以直接在这里写逻辑具体认证逻辑）
 * ProviderManager - AuthenticationManager 的最常见实现.（实现了可以通过 AuthenticationProvider#supports()方法来判断使用什么验证方式 ）
-* AuthenticationProvider - 由 ProviderManager 用于执行特定类型的身份验证.（具体的的认证实现，由AuthenticationManager 持有）
+* AuthenticationProvider - 由 ProviderManager 用于执行特定类型的身份验证.（具体的的认证实现，由 AuthenticationManager 持有）
 * 使用 AuthenticationEntryPoint 请求凭据 -带 AuthenticationEntryPoint 的请求凭据-用于从客户端请求凭据 (即重定向到登录页面,发送 WWW-Authenticate 响应等) .
 * AbstractAuthenticationProcessingFilter - 用于验证的基本过滤器. 这也为高级的身份验证流程以及各个部分如何协同工作提供了一个好主意.
 
@@ -30,7 +30,7 @@
 
 　　![](http://img.lsof.fun/2020-12-13-16074401507745.jpg)
 
-　　做重看 `HttpSecurityConfiguration#httpSecurity()` 方法，这里初始化了`HttpSecurity` 对象AuthenticationManagerBuilder 的默认装配实现 DefaultPasswordEncoderAuthenticationManagerBuilder
+　　做重看 `HttpSecurityConfiguration#httpSecurity()` 方法，这里初始化了 `HttpSecurity` 对象 AuthenticationManagerBuilder 的默认装配实现 DefaultPasswordEncoderAuthenticationManagerBuilder
 
 ## 3. 整体的路程
 
@@ -60,7 +60,7 @@ public FormLoginConfigurer<HttpSecurity> formLogin() throws Exception {
 }
 ```
 
-　　这里构建了 `FormLoginConfigurer` 相关逻辑，且定义了登陆需要的字段信息。关键是实例化了UsernamePasswordAuthenticationFilter (AbstractAuthenticationProcessingFilter)，这个类继承了Filter 。主要的使用 `attemptAuthentication()` 方法来拦截登陆请求。此方法是由下面方法调起。
+　　这里构建了 `FormLoginConfigurer` 相关逻辑，且定义了登陆需要的字段信息。关键是实例化了 UsernamePasswordAuthenticationFilter (AbstractAuthenticationProcessingFilter)，这个类继承了 Filter 。主要的使用 `attemptAuthentication()` 方法来拦截登陆请求。此方法是由下面方法调起。
 
 ```java
 AbstractAuthenticationProcessingFilter.doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
@@ -76,7 +76,7 @@ AbstractAuthenticationProcessingFilter.doFilter(HttpServletRequest request, Http
 > ![](http://img.lsof.fun/2020-12-13-16078635109165.jpg)
 >
 
-　　2、通过AuthenticationProvider.supports()方法匹配合适的 AuthenticationProvider 来返回 Authentication （里面囊括用户、认证信息）
+　　2、通过 AuthenticationProvider.supports()方法匹配合适的 AuthenticationProvider 来返回 Authentication （里面囊括用户、认证信息）
 3、如果是类型是 DaoAuthenticationProvider 的话，会使用 PasswordEncoder、UserDetailsService 来辅助认证。
 
 > 思考：为什么要设计的那么复杂？
@@ -89,7 +89,7 @@ AbstractAuthenticationProcessingFilter.doFilter(HttpServletRequest request, Http
 
 ### 4.1 自定义一个认证
 
-　　需求：使用手机+短信密码进行登录。下面忽略发送短信动作，只做认证
+　　需求：使用手机 + 短信密码进行登录。下面忽略发送短信动作，只做认证
 
 　　**1、创建数据传递类**: 用于包装用户传输的信息
 

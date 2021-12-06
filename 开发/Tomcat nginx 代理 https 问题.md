@@ -24,7 +24,7 @@ proxy_set_header X‐Real‐IP $remote_addr;
 proxy_set_header X‐Forwarded‐For $proxy_add_x_forwarded_for;
 ```
 
-　　2、 Tomcat server.xml 的 Engine 模块下配置一个 Valve(注意是Valve，不是Value， 是V不是U):
+　　2、 Tomcat server.xml 的 Engine 模块下配置一个 Valve(注意是 Valve，不是 Value， 是 V 不是 U):
 
 ```xml
 <Engine name="Catalina" defaultHost="localhost">
@@ -37,6 +37,6 @@ proxy_set_header X‐Forwarded‐For $proxy_add_x_forwarded_for;
 </Engine>
 ```
 
-　　附RemoteIpValve官方文档:[http://tomcat.apache.org/tomcat-8.0-doc/api/org/apache/catalina/valves/RemoteIpValve.html](http://tomcat.apache.org/tomcat-8.0-doc/api/org/apache/catalina/valves/RemoteIpValve.html)
+　　附 RemoteIpValve 官方文档:[http://tomcat.apache.org/tomcat-8.0-doc/api/org/apache/catalina/valves/RemoteIpValve.html](http://tomcat.apache.org/tomcat-8.0-doc/api/org/apache/catalina/valves/RemoteIpValve.html)
 
 　　

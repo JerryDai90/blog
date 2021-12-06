@@ -4,7 +4,7 @@
 
 　　![w400](http://img.lsof.fun/2020-03-29-15853888582147.jpg)
 
-　　核心在 ProxyCreatorSupport 类，其中 aopProxyFactory 在构造函数中就进行了初始化，通过 `DefaultAopProxyFactory#createAopProxy(AdvisedSupport config)` 返回具体的 `AopProxy` 对象，主要有2个实现类：
+　　核心在 ProxyCreatorSupport 类，其中 aopProxyFactory 在构造函数中就进行了初始化，通过 `DefaultAopProxyFactory#createAopProxy(AdvisedSupport config)` 返回具体的 `AopProxy` 对象，主要有 2 个实现类：
 
 * JdkDynamicAopProxy：JDK 自带的动态代理
 * ObjenesisCglibAopProxy：CGLib 的动态代理
@@ -24,6 +24,6 @@
 2. 调用 setTarget 和 addAdvisor 或者其他设置切面的方法时，其实是 `AdvisedSupport` 处理了业务逻辑。这里更多只是做配置。
 3. 当 `getProxy` 的时候，`DefaultAopProxyFactory` 通过 `AdvisedSupport` 中的相关配置判断采用 JDK 或者 CGLib 的动态代理。构件完成具体的代理厂商的时候，在此调用 `AdvisedSupport` 中的数据进行目标代理对象的构建。
 
-　　基础的使用可以看Github：[https://github.com/JerryDai90/java-case/blob/master/spring/aop/src/main/java/fun/lsof/spring/aop/hardcode/SpringAopHardCodedByProxyFactoryTest.java](https://github.com/JerryDai90/java-case/blob/master/spring/aop/src/main/java/fun/lsof/spring/aop/hardcode/SpringAopHardCodedByProxyFactoryTest.java)
+　　基础的使用可以看 Github：[https://github.com/JerryDai90/java-case/blob/master/spring/aop/src/main/java/fun/lsof/spring/aop/hardcode/SpringAopHardCodedByProxyFactoryTest.java](https://github.com/JerryDai90/java-case/blob/master/spring/aop/src/main/java/fun/lsof/spring/aop/hardcode/SpringAopHardCodedByProxyFactoryTest.java)
 
 　　

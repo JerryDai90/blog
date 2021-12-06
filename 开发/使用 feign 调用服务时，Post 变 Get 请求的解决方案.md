@@ -2,7 +2,7 @@
 
 ## 1. 问题
 
-　　使用的是 `2.1.1` 版本的 `feign`，进过大量的测试，无论是标准是 `@PostMapping` 还是 `@GetMapping`，只要参数标注 `@RequestParam`，调用的时候就一律都用 `Get` 请求，也就是说把参数拼接到 `URL` 上。如果想使用Post 请求，需要在参数标记 `@RequestBody`，这样无论是 `Get` 还是 `Post` 都一律使用 `Post`。
+　　使用的是 `2.1.1` 版本的 `feign`，进过大量的测试，无论是标准是 `@PostMapping` 还是 `@GetMapping`，只要参数标注 `@RequestParam`，调用的时候就一律都用 `Get` 请求，也就是说把参数拼接到 `URL` 上。如果想使用 Post 请求，需要在参数标记 `@RequestBody`，这样无论是 `Get` 还是 `Post` 都一律使用 `Post`。
 
 　　以下有几种的实现方式可以做到配置区分 `Post` 和 `Get` 请求。下列方案可能有缺陷，请慎用。
 
@@ -10,9 +10,9 @@
 
 ### 2.1 增加 feign 过滤器
 
-　　增加的 feign 拦截器，此拦截器是在 RequestTemplate 构建完成后执行的，我们手动再进行加工一下。把Post 相关的参数写入到 Body 里面，从而达到目的。
+　　增加的 feign 拦截器，此拦截器是在 RequestTemplate 构建完成后执行的，我们手动再进行加工一下。把 Post 相关的参数写入到 Body 里面，从而达到目的。
 
-　　**1、增加feign的拦截器 FeignRequestInterceptor**
+　　**1、增加 feign 的拦截器 FeignRequestInterceptor**
 
 ```java
 import feign.*;
@@ -75,7 +75,7 @@ ResultBody<Map<String,Object>> youMethod(@RequestParam("a") String a, @RequestPa
 
 ### 2.2 使用 httpClient 代替默认实现
 
-　　使用 httpClient 的实现，虽然 httpClient 里面的处理是会把URL里面的参数挪动到Body里面，但是由于ApacheHttpClient 的实现上和后面的处理有冲突。详细分析请看另外一篇分析 [《Spring boot 使用 feign 调用参数过长（Post变Get）》](https://lsof.fun/15834600207814.html)，但是需要修改 feign 的源码，这里直接采用在项目覆盖默认的实现。从而达到目的。
+　　使用 httpClient 的实现，虽然 httpClient 里面的处理是会把 URL 里面的参数挪动到 Body 里面，但是由于 ApacheHttpClient 的实现上和后面的处理有冲突。详细分析请看另外一篇分析 [《Spring boot 使用 feign 调用参数过长（Post 变 Get）》](https://lsof.fun/15834600207814.html)，但是需要修改 feign 的源码，这里直接采用在项目覆盖默认的实现。从而达到目的。
 
 　　**1、增加 `maven` 依赖:**
 
@@ -93,7 +93,7 @@ ResultBody<Map<String,Object>> youMethod(@RequestParam("a") String a, @RequestPa
 </dependency>-->
 ```
 
-　　**2、在yml文件中增加配置**
+　　**2、在 yml 文件中增加配置**
 
 ```yml
 feign:
@@ -112,7 +112,7 @@ feign:
 
 ## 3. 思考
 
-　　这几天看了比较多的源码，feign 相关源码不应该犯这种错误，把 POST 参数放到 URL 上。这个原因我的猜想是由于无论是放到 body 还是 header 上面，其实效果都是一样的（放到 url和在body编码方式和组合都是一样的），header 的默认大小限制就小一点（8K或者更少），而 Post 则大一点（2M+）。换句话来说，其实可以忽略这个问题，直接在配置文件中加大限制即可
+　　这几天看了比较多的源码，feign 相关源码不应该犯这种错误，把 POST 参数放到 URL 上。这个原因我的猜想是由于无论是放到 body 还是 header 上面，其实效果都是一样的（放到 url 和在 body 编码方式和组合都是一样的），header 的默认大小限制就小一点（8K 或者更少），而 Post 则大一点（2M+）。换句话来说，其实可以忽略这个问题，直接在配置文件中加大限制即可
 
 ```yml
 server:

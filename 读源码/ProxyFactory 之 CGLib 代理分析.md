@@ -23,7 +23,7 @@ public static void main(String[] args) {
 }
 ```
 
-> 基础使用的话基本和JDK 的那个 `InvocationHandler` 基本无差别。
+> 基础使用的话基本和 JDK 的那个 `InvocationHandler` 基本无差别。
 >
 
 ## 2. CglibAopProxy 分析
@@ -66,7 +66,7 @@ public static void main(String[] args) {
 
 ```
 
-　　我们看到，整个return 的 Callback[]里面 DynamicAdvisedInterceptor 是排在第一位的，我们着重关注一下。DynamicAdvisedInterceptor 也是一个 MethodInterceptor，也就是说方法调用的时候就会拦截到。就类是于我们自己写的callback函数的逻辑。通过这里面的逻辑进行前置后缀等逻辑。
+　　我们看到，整个 return 的 Callback[]里面 DynamicAdvisedInterceptor 是排在第一位的，我们着重关注一下。DynamicAdvisedInterceptor 也是一个 MethodInterceptor，也就是说方法调用的时候就会拦截到。就类是于我们自己写的 callback 函数的逻辑。通过这里面的逻辑进行前置后缀等逻辑。
 
 ## 3. DynamicAdvisedInterceptor 分析
 
@@ -121,4 +121,4 @@ public Object intercept(Object proxy, Method method, Object[] args, MethodProxy 
 
 ## 4. 总结
 
-　　其实 CGLib 和 JDK Proxy 使用上大同小异，都是通过“方法的过滤器”来增强函数的功能。只是Spring 在封装的时候增加了亿点点细节。让我们可以扩展更加方便。
+　　其实 CGLib 和 JDK Proxy 使用上大同小异，都是通过“方法的过滤器”来增强函数的功能。只是 Spring 在封装的时候增加了亿点点细节。让我们可以扩展更加方便。

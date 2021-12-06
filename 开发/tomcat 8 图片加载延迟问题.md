@@ -6,7 +6,7 @@
 
 ## 解决
 
-　　在此文件增加 $tomcat_home/conf/context.xml里面的 Context 中增加代码
+　　在此文件增加 $tomcat_home/conf/context.xml 里面的 Context 中增加代码
 
 ```
 <Resources cachingAllowed="false" /> 

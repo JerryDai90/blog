@@ -12,16 +12,16 @@ server:
 
 ### 1.1 现象
 
-　　调用说明：A服务调用B服务，前端提交到A服务的时候数据比较少，经过A加工后（数据多），调用B进行处理。
+　　调用说明：A 服务调用 B 服务，前端提交到 A 服务的时候数据比较少，经过 A 加工后（数据多），调用 B 进行处理。
 
-1. 服务A调用服务B的时候，服务A 抛出异常，状态码是 `400`，而B服务没有异常。
+1. 服务 A 调用服务 B 的时候，服务 A 抛出异常，状态码是 `400`，而 B 服务没有异常。
 2. 控制台信息
    ![w400](http://img.lsof.fun/2020-03-08-15836550983782.jpg)
 
 ### 1.2 问题排查
 
-1. 一开始以为是发送方做了数据控制，截断了数据的发送。于是乎觉得是 `fegin` 的`HttpClient` 的问题？使用`Charles` 调试数据请求，发现不是。这样就断定了是服务提供者的问题。
-2. 后面想起 `spring boot` 也是使用 `tomcat`容器部署的，`tomcat` 本身也存在数据请求的限制，找到了`POST` 相关配置如下：
+1. 一开始以为是发送方做了数据控制，截断了数据的发送。于是乎觉得是 `fegin` 的 `HttpClient` 的问题？使用 `Charles` 调试数据请求，发现不是。这样就断定了是服务提供者的问题。
+2. 后面想起 `spring boot` 也是使用 `tomcat` 容器部署的，`tomcat` 本身也存在数据请求的限制，找到了 `POST` 相关配置如下：
 
 ```properties
 # tomcat 配置
@@ -55,7 +55,7 @@ server.jetty.max-http-form-post-size
 > * General headers: 同时适用于请求和响应消息，但与最终消息主体中传输的数据无关的消息头。
 > * Request headers: 包含更多有关要获取的资源或客户端本身信息的消息头。
 > * Response headers: 包含有关响应的补充信息，如其位置或服务器本身（名称和版本等）的消息头。
-> * Entity headers: 包含有关实体主体的更多信息，比如主体长(Content-Length)度或其MIME类型。
+> * Entity headers: 包含有关实体主体的更多信息，比如主体长(Content-Length)度或其 MIME 类型。
 >
 > 摘抄于 https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers
 >
@@ -64,7 +64,7 @@ server.jetty.max-http-form-post-size
 
 　　控制台报错的错误
 
-### 2.2 找出 fegin 拼接到url上的原因
+### 2.2 找出 fegin 拼接到 url 上的原因
 
 　　通过 debug 找到关键方法：
 
@@ -100,7 +100,7 @@ SynchronousMethodHandler#targetRequest(RequestTemplate template)
 </dependency>
 ```
 
-　　在yml文件中增加配置:
+　　在 yml 文件中增加配置:
 
 ```yml
 feign:
@@ -112,16 +112,16 @@ feign:
 
 　　**以下是原因分析：**
 
-　　先回经过 `ApacheHttpClient#toHttpUriRequest(Request request, Request.Options options);` 方法，由于前面构建的 `Request` 对象就没有 `body` 信息。所以默认赋予一个空的Entity。如下图：
+　　先回经过 `ApacheHttpClient#toHttpUriRequest(Request request, Request.Options options);` 方法，由于前面构建的 `Request` 对象就没有 `body` 信息。所以默认赋予一个空的 Entity。如下图：
 
 　　![w500](http://img.lsof.fun/2020-03-08-15836757341084.jpg)
 
-　　其次调用了 `RequestBuilder#build();` 构建的时候，下图②处又将重新参数赋予到url上了，又重复出现一样的问题。如下图：
+　　其次调用了 `RequestBuilder#build();` 构建的时候，下图 ② 处又将重新参数赋予到 url 上了，又重复出现一样的问题。如下图：
 ![w500](http://img.lsof.fun/2020-03-08-15836755685690.jpg)
 
 #### 2.3.1 修改 feign 源码
 
-　　上面我们已经确认了问题所在，这个时候只需要修改部分源码即可解决这个问题。复制feign.httpclient.ApacheHttpClient 到你工程路径下（注意包名也要一致），然后注释掉下面这句。
+　　上面我们已经确认了问题所在，这个时候只需要修改部分源码即可解决这个问题。复制 feign.httpclient.ApacheHttpClient 到你工程路径下（注意包名也要一致），然后注释掉下面这句。
 
 　　![w600](http://img.lsof.fun/2020-03-09-15837611769939.jpg)
 

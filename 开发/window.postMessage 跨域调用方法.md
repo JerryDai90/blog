@@ -1,4 +1,4 @@
-父子页面之间的通讯，如果同源的通过 window对象直接调用父(子)中的方法与对象（全局方法与对象）。如果出现跨域的，多系统情况下这种就被同源策略禁止掉了。因此需要使用其他方法解决。可以使用 window.postMessage 方法，附上技术规范 [https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage)
+父子页面之间的通讯，如果同源的通过 window 对象直接调用父(子)中的方法与对象（全局方法与对象）。如果出现跨域的，多系统情况下这种就被同源策略禁止掉了。因此需要使用其他方法解决。可以使用 window.postMessage 方法，附上技术规范 [https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage)
 
 > vue 等工程也同样适用
 >

@@ -1,10 +1,10 @@
 　　转载于 [https://www.kancloud.cn/kancloud/javascript-standards-reference/46490](https://www.kancloud.cn/kancloud/javascript-standards-reference/46490)
 
-　　随着网站逐渐变成"互联网应用程序"，嵌入网页的JavaiScript代码越来越庞大，越来越复杂。网页越来越像桌面程序，需要一个团队分工协作、进度管理、单元测试等等......开发者不得不使用软件工程的方法，管理网页的业务逻辑。
+　　随着网站逐渐变成"互联网应用程序"，嵌入网页的 JavaiScript 代码越来越庞大，越来越复杂。网页越来越像桌面程序，需要一个团队分工协作、进度管理、单元测试等等......开发者不得不使用软件工程的方法，管理网页的业务逻辑。
 
-　　JavaScript模块化编程，已经成为一个迫切的需求。理想情况下，开发者只需要实现核心的业务逻辑，其他都可以加载别人已经写好的模块。
+　　JavaScript 模块化编程，已经成为一个迫切的需求。理想情况下，开发者只需要实现核心的业务逻辑，其他都可以加载别人已经写好的模块。
 
-　　但是，JavaScript不是一种模块化编程语言，ES5不支持"类"（class），更遑论"模块"（module）了。ES6正式支持"类"和"模块"，但还没有成为主流。JavaScript社区做了很多努力，在现有的运行环境中，实现模块的效果。
+　　但是，JavaScript 不是一种模块化编程语言，ES5 不支持"类"（class），更遑论"模块"（module）了。ES6 正式支持"类"和"模块"，但还没有成为主流。JavaScript 社区做了很多努力，在现有的运行环境中，实现模块的效果。
 
 ## 原始写法
 
@@ -20,7 +20,7 @@ function m2(){
 }
 ```
 
-　　上面的函数 `m1()`和 `m2()`，组成一个模块。使用的时候，直接调用就行了。
+　　上面的函数 `m1()` 和 `m2()`，组成一个模块。使用的时候，直接调用就行了。
 
 　　这种做法的缺点很明显："污染"了全局变量，无法保证不与其他模块发生变量名冲突，而且模块成员之间看不出直接关系。
 
@@ -40,7 +40,7 @@ var module1 = new Object({
 });
 ```
 
-　　上面的函数m1()和m2(），都封装在module1对象里。使用的时候，就是调用这个对象的属性。
+　　上面的函数 m1()和 m2(），都封装在 module1 对象里。使用的时候，就是调用这个对象的属性。
 
 ```javascript
 module1.m1();
@@ -72,13 +72,13 @@ var module1 = (function(){
 })();
 ```
 
-　　使用上面的写法，外部代码无法读取内部的_count变量。
+　　使用上面的写法，外部代码无法读取内部的_count 变量。
 
 ```javascript
 console.info(module1._count); //undefined
 ```
 
-　　module1就是JavaScript模块的基本写法。下面，再对这种写法进行加工。
+　　module1 就是 JavaScript 模块的基本写法。下面，再对这种写法进行加工。
 
 ## 放大模式
 
@@ -93,7 +93,7 @@ var module1 = (function (mod){
 })(module1);
 ```
 
-　　上面的代码为module1模块添加了一个新方法m3()，然后返回新的module1模块。
+　　上面的代码为 module1 模块添加了一个新方法 m3()，然后返回新的 module1 模块。
 
 ## 宽放大模式（Loose augmentation）
 
@@ -120,7 +120,7 @@ var module1 = (function ($, YAHOO) {
 })(jQuery, YAHOO);
 ```
 
-　　上面的module1模块需要使用jQuery库和YUI库，就把这两个库（其实是两个模块）当作参数输入module1。这样做除了保证模块的独立性，还使得模块之间的依赖关系变得明显。
+　　上面的 module1 模块需要使用 jQuery 库和 YUI 库，就把这两个库（其实是两个模块）当作参数输入 module1。这样做除了保证模块的独立性，还使得模块之间的依赖关系变得明显。
 
 ## 使用构造函数封装私有变量
 
@@ -161,7 +161,7 @@ StringBuilder.prototype = {
 
 　　这种方法将私有变量放入实例对象中，好处是看上去更自然，但是它的私有变量可以从外部读写，不是很安全。
 
-## IIFE封装私有变量
+## IIFE 封装私有变量
 
 ```javascript
 var obj = function () {  // open IIFE

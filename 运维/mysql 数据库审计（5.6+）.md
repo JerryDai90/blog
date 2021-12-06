@@ -2,14 +2,14 @@
 
 　　数据库中需要增加审计功能。
 
-> 审计记录包括事件日期、时间、发起者信息（如用户名、IP地址等）、类型、描述和结果（是否成功等）等内容。
+> 审计记录包括事件日期、时间、发起者信息（如用户名、IP 地址等）、类型、描述和结果（是否成功等）等内容。
 >
 
-　　`mysql` 孪生兄弟 `mariadb` 的安装包里面有相关的模块，我们只需要对应下载下来即可。本次测试的是windows 所以插件都是dll文件后缀，如果是linux的话后缀是 .so
+　　`mysql` 孪生兄弟 `mariadb` 的安装包里面有相关的模块，我们只需要对应下载下来即可。本次测试的是 windows 所以插件都是 dll 文件后缀，如果是 linux 的话后缀是 .so
 
 ## 1. 下载 mariadb 版本
 
-　　下载地址：[https://archive.mariadb.org]()，针对对应的部署平台下载相应的版本。由于找不到 mysql 与 mariadb对应的版本。可以先拿到最新的 mariadb-5.5.68 进行尝试。
+　　下载地址：[https://archive.mariadb.org]()，针对对应的部署平台下载相应的版本。由于找不到 mysql 与 mariadb 对应的版本。可以先拿到最新的 mariadb-5.5.68 进行尝试。
 
 ### 1.1.1 获取 dll or so
 
@@ -43,4 +43,4 @@ server_audit_file_path=D:\\MySQL\\logs
 
 ## 3. 验证
 
-　　重启mysql 后，谁便执行语句即可在 server_audit.log 中看到数据
+　　重启 mysql 后，谁便执行语句即可在 server_audit.log 中看到数据

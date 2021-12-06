@@ -9,13 +9,13 @@ android 的页面放回每次都是刷新页面的，iOS 的返回是缓存的�
 
 　　一轮搜索，都是介绍使用监听 `popstate` 方法来实现，在 android 上的
 
-　　2次就会回到指定链接
+　　2 次就会回到指定链接
 
-　　进入2此之后，就触发不了popstate事件了（经过测试，如果这个时候的返回页面就是你在 history.pushState 的页面地址，也就是说会重新载入这个页面，也就没有 popstate 什么事了）
+　　进入 2 此之后，就触发不了 popstate 事件了（经过测试，如果这个时候的返回页面就是你在 history.pushState 的页面地址，也就是说会重新载入这个页面，也就没有 popstate 什么事了）
 history.pushState(null, null, "index4menu.jsp?xxxx"); 还会缓存
 
 　　window.addEventListener('pageshow', function () {
-在点了2次以上的页面依旧会触发，但是却关闭不了页面
+在点了 2 次以上的页面依旧会触发，但是却关闭不了页面
 
 ## 解决方案
 
@@ -79,4 +79,4 @@ common.goBackCloseWechatWindow : function (key, fnOnSetFlagCallback, fnCloseCall
 
 ## 参考资料
 
-　　https://github.com/Tencent/weui/wiki/微信JSAPI
+　　https://github.com/Tencent/weui/wiki/微信 JSAPI

@@ -8,7 +8,7 @@
   > Git 的版本号可以直接定位到具体的提交记录，换句话来说可以直接下载到对应版本的所有代码。不区分分支。
   >
 * 通过 Dockerfile 的 docker build 命令将相关数据传入 Dockerfile 中去。
-* Dockerfile 可以通过存放到 `LABEL` 中去，或者 `evn
+* Dockerfile 可以通过存放到 `LABEL` 中去，或者 `ENV`
 
 ## 3. 范例文件
 

@@ -37,6 +37,19 @@ ExecStart=/home/tom/test/my.sh                 #这里填sh文件路径，比如
 WantedBy=multi-user.target
 ```
 
+　　范例 
+
+```properties
+[Unit]
+After=network.service
+
+[Service]
+ExecStart=/work/my-demons.sh
+
+[Install]
+WantedBy=default.target
+```
+
 ## 3.启动服务
 
 　　使用以下命令使能这个服务开机启动：
